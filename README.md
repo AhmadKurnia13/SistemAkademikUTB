@@ -2,6 +2,15 @@
 
 Sistem Informasi Akademik Universitas Teknologi Bandung (SIAKAD UTB) adalah aplikasi desktop berbasis Java GUI (Swing) yang dirancang untuk mengelola data akademik secara komprehensif. Aplikasi ini dilengkapi dengan arsitektur **Multi-Role (Admin & Operator)**, antarmuka modern yang seamless (dark-mode), serta kalkulasi nilai otomatis.
 
+[![Demo Video](https://img.shields.io/badge/YouTube-Watch_Demo-red?style=for-the-badge&logo=youtube)]((https://youtu.be/owxTZd8Rytk))
+
+## 👤 Identitas Pengembang
+* **Nama:** Ahmad Kurnia
+* **NIM:** 24552011297
+* **Program Studi:** Teknik Informatika
+* **Universitas:** Universitas Teknologi Bandung (UTB)
+* **Dosen Pengampu:** Bapak Iwan Ridwan, S.T., M.Kom.
+
 ---
 
 ## 📑 Daftar Isi
@@ -219,14 +228,6 @@ erDiagram
 
 ### 4. Pengaturan Pengguna
 ![Pengaturan](dokumentasi/pengaturan.png)
-
-IDENTITAS PENGEMBANG (AUTHOR)
-Nama Mahasiswa           : Ahmad Kurnia
-NIM                      : 24552011297
-Mata Kuliah              : Pemrograman Berorientasi Objek II
-Program Studi            : Teknik Informatika
-Universitas Teknologi Bandung (UTB)
-Dosen Pengampu : Bapak Iwan Ridwan, S.T., M.Kom.
 
 ---
 *Dibuat untuk Project Sistem Akademik Universitas Teknologi Bandung (UTB).*
