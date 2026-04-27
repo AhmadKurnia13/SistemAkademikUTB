@@ -20,7 +20,7 @@ public class Koneksi {
     public static Connection configDB() throws SQLException {
         try {
 
-            String url = "jdbc:mysql://localhost:3306/db_uts_pbo";
+            String url = "jdbc:mysql://localhost:3306/db_uts_pbo_ahmad";
             String user = "root";
             String pass = "";
 

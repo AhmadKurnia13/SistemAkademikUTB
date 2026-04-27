@@ -87,9 +87,23 @@ public class FormLogin extends JFrame {
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Navigate to Main Menu
-                new MenuUtama().setVisible(true);
-                dispose();
+                try {
+                    java.sql.Connection conn = Koneksi.configDB();
+                    String sql = "SELECT * FROM user WHERE id_user=? AND password=?";
+                    java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                    pst.setString(1, tfUser.getText());
+                    pst.setString(2, new String(pfPass.getPassword()));
+                    java.sql.ResultSet rs = pst.executeQuery();
+                    
+                    if (rs.next()) {
+                        new MenuUtama().setVisible(true);
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Username atau Password Salah!");
+                    }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Database Error: " + ex.getMessage());
+                }
             }
         });
         right.add(btnLogin, gbc);

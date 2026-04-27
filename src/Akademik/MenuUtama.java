@@ -40,7 +40,7 @@ public class MenuUtama extends JFrame {
 
         // Add Forms
         cardPanel.add(createDashboard(), "Dashboard");
-        cardPanel.add(new FormMahasiswa().getContentPane(), "Mahasiswa");
+        cardPanel.add(new FormMahasiswa(), "Mahasiswa");
         cardPanel.add(new FormDosen(), "Dosen");
         cardPanel.add(new FormMatakuliah(), "Mata Kuliah");
         cardPanel.add(new FormKrs(), "KRS");

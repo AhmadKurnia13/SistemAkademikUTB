@@ -56,14 +56,14 @@ public class ChangePasswordForm extends JInternalFrame {
         btnUpdate.addActionListener(e -> {
             try {
                 Connection conn = Koneksi.configDB();
-                String sqlCek = "SELECT * FROM data_user WHERE id_user=? AND password=?";
+                String sqlCek = "SELECT * FROM user WHERE id_user=? AND password=?";
                 PreparedStatement pstCek = conn.prepareStatement(sqlCek);
                 pstCek.setString(1, txtUser.getText());
                 pstCek.setString(2, new String(txtPassLama.getPassword()));
                 ResultSet rs = pstCek.executeQuery();
                 
                 if(rs.next()){
-                    String sqlUpdate = "UPDATE data_user SET password=? WHERE id_user=?";
+                    String sqlUpdate = "UPDATE user SET password=? WHERE id_user=?";
                     PreparedStatement pstUpdate = conn.prepareStatement(sqlUpdate);
                     pstUpdate.setString(1, new String(txtPassBaru.getPassword()));
                     pstUpdate.setString(2, txtUser.getText());
