@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Apr 2026 pada 21.35
+-- Waktu pembuatan: 27 Apr 2026 pada 07.27
 -- Versi server: 10.4.32-MariaDB-log
 -- Versi PHP: 8.2.12
 
@@ -77,7 +77,8 @@ INSERT INTO `krs` (`id_krs`, `nim`, `kode_mk`, `semester_aktif`) VALUES
 (10, '2400006', 'MK002', 4),
 (11, '2400007', 'MK003', 3),
 (12, '2400008', 'MK005', 2),
-(13, '2400009', 'MK006', 2);
+(13, '2400009', 'MK006', 2),
+(14, '2400001', 'MK001', 4);
 
 -- --------------------------------------------------------
 
@@ -88,30 +89,31 @@ INSERT INTO `krs` (`id_krs`, `nim`, `kode_mk`, `semester_aktif`) VALUES
 CREATE TABLE `mahasiswa` (
   `nim` varchar(15) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `alamat` text DEFAULT NULL
+  `alamat` text DEFAULT NULL,
+  `jurusan` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`nim`, `nama`, `alamat`) VALUES
-('2400001', 'Ahmad Kurnia', 'Bandung, Jawa Barat'),
-('2400002', 'Zikri', 'Bandung, Jawa Barat'),
-('2400003', 'Fajar', 'Bandung, Jawa Barat'),
-('2400004', 'Adi', 'Bandung, Jawa Barat'),
-('2400005', 'Ragil', 'Bandung, Jawa Barat'),
-('2400006', 'Dafa', 'Bandung, Jawa Barat'),
-('2400007', 'Imam', 'Bandung, Jawa Barat'),
-('2400008', 'Reiham', 'Bandung, Jawa Barat'),
-('2400009', 'Naufal Aulia Nuchrizal', 'Bandung, Jawa Barat'),
-('2400010', 'Muhammad Sultan Fathurasyid', 'Bandung, Jawa Barat'),
-('26772000555', 'Budi', 'Street:  Jl Tanjungsari 3-5 D/4, Jawa Timur\n\nCity:   Jawa Timur\n\nState/province/area:    Surabaya\n\nPhone number:  0-31-749-2261\n\nZip code:  60187\n\nCountry calling code:  +62\n\nCountry:  Indonesia'),
-('26772000556', 'Budi Siregar', 'Street:  Jl Kertamurti 2, Dki Jakarta\n\nCity:   Dki Jakarta\n\nState/province/area:    Jakarta\n\nPhone number:  0-21-749-3934\n\nZip code:  15419\n\nCountry calling code:  +62\n\nCountry:  Indonesia'),
-('26772000558', 'Andika Permata', 'Street:  Jl Medan Merdeka Brt 3, Dki Jakarta\n\nCity:   Dki Jakarta\n\nState/province/area:    Jakarta\n\nPhone number:  0-21-345-8423\n\nZip code:  10110\n\nCountry calling code:  +62\n\nCountry:  Indonesia'),
-('26772000559', 'Khoirul Insan', 'Street:  Jl Raden Saleh 16, Dki Jakarta\n\nCity:   Dki Jakarta\n\nState/province/area:    Jakarta\n\nPhone number:  021-31902073\n\nZip code:  10430\n\nCountry calling code:  +62\n\nCountry:  Indonesia'),
-('26772000560', 'indah kusuma', 'Street:  Jl Tanjungsari 3-5 D/5, Jawa Timur\n\nCity:   Jawa Timur\n\nState/province/area:    Surabaya\n\nPhone number:  0-31-749-2261\n\nZip code:  60187\n\nCountry calling code:  +62\n\nCountry:  Indonesia'),
-('26772000561', 'Restu Imam', 'Street:  Jl Tanjungsari 3-5 D/7, Jawa Barat\n\nCity:   Jawa Timur\n\nState/province/area:    Surabaya\n\nPhone number:  0-31-749-2261\n\nZip code:  60187\n\nCountry calling code:  +62\n\nCountry:  Indonesia');
+INSERT INTO `mahasiswa` (`nim`, `nama`, `alamat`, `jurusan`) VALUES
+('2400001', 'Ahmad Kurnia', 'Bandung, Jawa Barat', 'Teknik Elektro'),
+('2400002', 'Zikri', 'Bandung, Jawa Barat', 'Teknik Elektro'),
+('2400003', 'Fajar', 'Bandung, Jawa Barat', NULL),
+('2400004', 'Adi', 'Bandung, Jawa Barat', 'Teknik Informatika'),
+('2400005', 'Ragil', 'Bandung, Jawa Barat', NULL),
+('2400006', 'Dafa', 'Bandung, Jawa Barat', NULL),
+('2400007', 'Imam', 'Bandung, Jawa Barat', NULL),
+('2400008', 'Reiham', 'Bandung, Jawa Barat', NULL),
+('2400009', 'Naufal Aulia Nuchrizal', 'Bandung, Jawa Barat', NULL),
+('2400010', 'Muhammad Sultan Fathurasyid', 'Bandung, Jawa Barat', NULL),
+('26772000555', 'Budi', 'Street:  Jl Tanjungsari 3-5 D/4, Jawa Timur\n\nCity:   Jawa Timur\n\nState/province/area:    Surabaya\n\nPhone number:  0-31-749-2261\n\nZip code:  60187\n\nCountry calling code:  +62\n\nCountry:  Indonesia', NULL),
+('26772000556', 'Budi Siregar', 'Street:  Jl Kertamurti 2, Dki Jakarta\n\nCity:   Dki Jakarta\n\nState/province/area:    Jakarta\n\nPhone number:  0-21-749-3934\n\nZip code:  15419\n\nCountry calling code:  +62\n\nCountry:  Indonesia', NULL),
+('26772000558', 'Andika Permata', 'Street:  Jl Medan Merdeka Brt 3, Dki Jakarta\n\nCity:   Dki Jakarta\n\nState/province/area:    Jakarta\n\nPhone number:  0-21-345-8423\n\nZip code:  10110\n\nCountry calling code:  +62\n\nCountry:  Indonesia', NULL),
+('26772000559', 'Khoirul Insan', 'Street:  Jl Raden Saleh 16, Dki Jakarta\n\nCity:   Dki Jakarta\n\nState/province/area:    Jakarta\n\nPhone number:  021-31902073\n\nZip code:  10430\n\nCountry calling code:  +62\n\nCountry:  Indonesia', NULL),
+('26772000560', 'indah kusuma', 'Street:  Jl Tanjungsari 3-5 D/5, Jawa Timur\n\nCity:   Jawa Timur\n\nState/province/area:    Surabaya\n\nPhone number:  0-31-749-2261\n\nZip code:  60187\n\nCountry calling code:  +62\n\nCountry:  Indonesia', NULL),
+('26772000561', 'Restu Imam', 'Street:  Jl Tanjungsari 3-5 D/7, Jawa Barat\n\nCity:   Jawa Timur\n\nState/province/area:    Surabaya\n\nPhone number:  0-31-749-2261\n\nZip code:  60187\n\nCountry calling code:  +62\n\nCountry:  Indonesia', NULL);
 
 -- --------------------------------------------------------
 
@@ -131,8 +133,9 @@ CREATE TABLE `matakuliah` (
 --
 
 INSERT INTO `matakuliah` (`kode_mk`, `nama_mk`, `sks`, `semester`) VALUES
+('213', 'weqqwe', 1, 3),
 ('MK001', 'Pemrograman Berorientasi Objek', 3, 3),
-('MK002', 'Pemrograman Mobile', 3, 4),
+('MK002', 'Pemrograman Mobile', 3, 5),
 ('MK003', 'Jaringan Komputer', 3, 3),
 ('MK004', 'Administrasi Sistem Jaringan', 3, 4),
 ('MK005', 'Basis Data', 3, 2),
@@ -166,7 +169,7 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `id_krs`, `nilai_uts`, `nilai_tugas`, `nilai_uas`, `nilai_absen`, `nilai_akhir`, `nim`, `kode_mk`, `nilai_huruf`) VALUES
-(4, 4, 85, 90, 88, 100, 89, '2400001', 'MK001', 'A'),
+(4, 4, 85, 90, 88, 100, 89, '2400001', 'MK001', 'B'),
 (5, 5, 80, 85, 80, 100, 83, '2400001', 'MK002', 'B'),
 (6, 6, 75, 80, 78, 100, 78, '2400002', 'MK001', 'B'),
 (7, 7, 90, 95, 92, 100, 93, '2400003', 'MK003', 'A'),
@@ -249,7 +252,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `krs`
 --
 ALTER TABLE `krs`
-  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `nilai`
