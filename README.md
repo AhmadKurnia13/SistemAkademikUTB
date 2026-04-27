@@ -1,98 +1,224 @@
-<p align="center">
-  <img src="img/logo_utb.png" alt="Logo UTB" width="150" />
-</p>
+# 🎓 Sistem Akademik UTB (SIAKAD)
 
-<h1 align="center">🎓 Sistem Informasi Akademik UTB</h1>
-<p align="center">
-  <strong>Aplikasi Desktop Java Swing Premium untuk Manajemen Data Akademik Terpadu</strong><br/>
-  <em>Tugas Akhir / Ujian Tengah Semester (UTS) — Pemrograman Berorientasi Objek II</em>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-JDK_17+-orange?style=for-the-badge&logo=openjdk" />
-  <img src="https://img.shields.io/badge/IDE-NetBeans-blue?style=for-the-badge&logo=apache-netbeans-ide" />
-  <img src="https://img.shields.io/badge/Database-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
-  <img src="https://img.shields.io/badge/UI-Premium_Dark_Mode-000000?style=for-the-badge" />
-</p>
+Sistem Informasi Akademik Universitas Teknologi Bandung (SIAKAD UTB) adalah aplikasi desktop berbasis Java GUI (Swing) yang dirancang untuk mengelola data akademik secara komprehensif. Aplikasi ini dilengkapi dengan arsitektur **Multi-Role (Admin & Operator)**, antarmuka modern yang seamless (dark-mode), serta kalkulasi nilai otomatis.
 
 ---
 
-## 📋 Deskripsi Proyek
-**Sistem Informasi Akademik UTB** adalah sebuah aplikasi perangkat lunak berbasis *Java Desktop* yang dirancang untuk mempermudah pengelolaan data akademik di lingkungan Universitas Teknologi Bandung (UTB). Dibangun dengan arsitektur **JDesktopPane** dan **JInternalFrame**, aplikasi ini mengusung desain *Premium Dark Mode* yang elegan, profesional, dan bebas dari tampilan kaku khas Java Swing bawaan.
-
-Aplikasi ini telah terintegrasi secara penuh dengan *Database Relasional MySQL*, mendukung operasi **CRUD (Create, Read, Update, Delete)** untuk berbagai entitas akademik mulai dari data *Master* hingga *Transaksi*.
-
----
-
-## 🌟 Fitur Utama Aplikasi
-
-Aplikasi ini dilengkapi dengan serangkaian fitur profesional yang dirancang khusus untuk memenuhi standar akademik:
-
-- 🔐 **Secure Login System** — Autentikasi pengguna dengan validasi langsung dari database untuk mengamankan akses ke dalam Dashboard Utama.
-- 🎨 **Premium Dark Mode UI** — Antarmuka pengguna (*User Interface*) modern, elegan, dan *eye-catching* tanpa menggunakan library eksternal (Pure Java Swing).
-- 🗂️ **Master Data Management** — Modul lengkap untuk mengelola data inti (*CRUD*):
-  - **Data User:** Manajemen akun pengguna (Tambah User & Ganti Password).
-  - **Data Mahasiswa:** Pengolahan identitas mahasiswa aktif.
-  - **Data Dosen:** Pengolahan data pengajar dan NIDN.
-  - **Data Mata Kuliah:** Manajemen kurikulum dan SKS.
-- 🔄 **Modul Transaksi Akademik** — 
-  - **KRS (Kartu Rencana Studi):** Pendaftaran mata kuliah per semester untuk mahasiswa.
-  - **Input Nilai:** Modul *Critical* yang dibatasi secara ketat untuk penginputan nilai huruf terstandarisasi (`A`, `B`, `C`, `D`, `E`).
-- 📊 **Dynamic Data Rendering** — Menampilkan data *real-time* ke dalam tabel (`JTable`) yang telah dikustomisasi secara mulus agar menyatu dengan tema gelap (*borderless & flat*).
+## 📑 Daftar Isi
+1. [Fitur Utama](#-fitur-utama)
+2. [Stack Teknologi](#-stack-teknologi)
+3. [Struktur Folder Project](#-struktur-folder-project)
+4. [Tugas & Hak Akses Role](#-tugas--hak-akses-role)
+5. [Cara Menggunakan](#-cara-menggunakan)
+6. [Panduan Penggunaan Lengkap](#-panduan-penggunaan-lengkap)
+7. [Use Case & Alur Kerja (Visual)](#-use-case--alur-kerja-visual)
+8. [Skema Visual Database](#-skema-visual-database)
+9. [Screenshot Aplikasi](#-screenshot-aplikasi)
 
 ---
 
-## 🚀 Cara Menjalankan Aplikasi
-
-Ikuti langkah-langkah di bawah ini untuk menjalankan aplikasi di lingkungan lokal Anda:
-
-### 1. Persiapan Database (XAMPP)
-1. Buka dan jalankan **XAMPP Control Panel**.
-2. Klik tombol **Start** pada modul **Apache** dan **MySQL**.
-3. Buka *browser* dan akses [http://localhost/phpmyadmin](http://localhost/phpmyadmin).
-4. Buat *database* baru dengan nama: `db_uts_pbo_ahmad`.
-5. *Import* file SQL (jika tersedia) untuk membentuk struktur tabel secara otomatis.
-
-### 2. Konfigurasi IDE (NetBeans)
-1. Buka **Apache NetBeans IDE**.
-2. Pilih menu **File > Open Project**, lalu cari dan buka folder proyek `SistemAkademikUTB`.
-3. Pastikan **MySQL Connector/J** (`mysql-connector-j-9.7.0.jar`) sudah ditambahkan ke dalam daftar *Libraries* proyek Anda.
-4. Lakukan *Clean and Build* proyek untuk memastikan tidak ada *error*.
-
-### 3. Eksekusi Program
-1. Di panel *Projects* sebelah kiri, cari file kelas utama penggerak aplikasi: `src/Akademik/SistemAkademikUTB.java`.
-2. Klik kanan pada file tersebut dan pilih **Run File** (atau tekan `Shift + F6`).
-3. Anda akan disambut oleh layar **Form Login**. Masukkan *username* dan *password* Anda untuk masuk ke dalam **Dashboard (Main Menu)**.
+## 🌟 Fitur Utama
+- **Multi-Role Authentication**: Login aman dengan pemisahan hak akses ketat antara *Admin* dan *Operator*.
+- **Master Data Management**: Modul CRUD (Create, Read, Update, Delete) lengkap untuk Mahasiswa, Dosen, dan Mata Kuliah.
+- **Transaksi KRS & Approval**: Pendaftaran KRS oleh mahasiswa yang dikelola oleh Operator, dengan validasi/Approval oleh Admin (Dosen Wali).
+- **Pengelolaan Nilai Komprehensif**: Kalkulasi otomatis *Nilai Akhir*, *Grade* (A/B/C/D/E), dan *Status Kelulusan* berdasarkan bobot Absensi, Tugas, Quiz, UTS, dan UAS.
+- **Dynamic User Settings**: Fitur untuk menambah user baru dan mengganti password secara fleksibel (Target ID User).
+- **Modern UI/UX**: Desain flat, borderless, dan dark-mode menggunakan kustomisasi komponen Swing secara penuh.
 
 ---
 
-## 📸 Dokumentasi & Screenshot
-
-Semua dokumentasi visual terkait antarmuka (*UI*) dan demonstrasi fitur (Form Login, Dashboard, Form Input Nilai, dll) disimpan secara rapi di dalam folder berikut:
-👉 **`/dokumentasi/`** *(Buka folder ini untuk melihat screenshot UI aplikasi)*
-
----
-
-## 🎥 Video Demonstrasi
-
-> Penjelasan detail mengenai kode, alur berjalannya aplikasi, dan demonstrasi interaksi dengan *Database Relasional* dapat ditonton melalui tautan berikut:
-
-👉 **[Link Video YouTube Menyusul]**
+## 🛠️ Stack Teknologi
+- **Bahasa Pemrograman**: Java (JDK 8 / 11+)
+- **GUI Framework**: Java Swing & AWT (CardLayout, GridBagLayout, flat styling)
+- **Database**: MySQL (XAMPP / MariaDB)
+- **Driver**: JDBC MySQL Connector (`mysql-connector-java`)
+- **IDE**: Apache NetBeans
 
 ---
 
-## 👤 Identitas Pengembang (Author)
+## 📁 Struktur Folder Project
+```text
+SistemAkademikUTB/
+│
+├── src/
+│   ├── Akademik/
+│   │   ├── Koneksi.java                # Konfigurasi & Driver Database
+│   │   ├── Session.java                # Manajemen state Session/Login
+│   │   ├── StyleManager.java           # Centralized UI/UX Styling (Dark Theme)
+│   │   ├── SistemAkademikUTB.java      # Main class / Entry Point
+│   │   ├── FormLogin.java              # Halaman Login
+│   │   ├── MenuUtama.java              # Dashboard & Navigasi Sidebar (CardLayout)
+│   │   ├── FormMahasiswa.java          # Modul Data Mahasiswa
+│   │   ├── FormDosen.java              # Modul Data Dosen
+│   │   ├── FormMatakuliah.java         # Modul Data Mata Kuliah
+│   │   ├── FormDataUser.java           # Modul Data User (Admin)
+│   │   ├── FormKrs.java                # Modul Input KRS
+│   │   ├── FormApprovalKrs.java        # Modul Persetujuan KRS (Admin)
+│   │   ├── FormNilai.java              # Modul Perhitungan Nilai Lengkap
+│   │   └── FormPengaturanPengguna.java # Modul Ganti Password & Tambah User
+│   │
+│   └── img/                            # Aset gambar & Logo
+│
+└── lib/                                # Library Eksternal (JDBC Driver)
+```
 
-| Informasi Akademik | Detail |
-| :--- | :--- |
-| **Nama Mahasiswa** | **Ahmad Kurnia** |
-| **Nomor Induk Mahasiswa (NIM)** | `24552011297` |
-| **Kelas** | TIF RP 24 CNS D |
-| **Program Studi** | Teknik Informatika |
-| **Mata Kuliah** | Pemrograman Berorientasi Objek II |
-| **Institusi** | Universitas Teknologi Bandung (UTB) |
-| **Dosen Pengampu** | Bapak Iwan Ridwan, S.T., M.Kom. |
+---
 
-<p align="center">
-  <em>Dibuat dengan ❤️ untuk memenuhi tugas Ujian Tengah Semester.</em>
-</p>
+## 🔐 Tugas & Hak Akses Role
+
+| Role | Menu yang Bisa Diakses | Tugas Utama |
+|---|---|---|
+| **Admin** | Dashboard, Mahasiswa, Dosen, Mata Kuliah, Pengaturan | Monitoring data akademik, kelola master data (mahasiswa, dosen, mata kuliah), approval KRS, kelola pengaturan akun. |
+| **Operator**| Dashboard, KRS, Nilai, Pengaturan | Input dan update transaksi KRS, input komponen nilai sampai nilai akhir, maintenance akun. |
+
+---
+
+## 🚀 Cara Menggunakan
+1. **Siapkan Database**:
+   - Jalankan **XAMPP** (Start *Apache* dan *MySQL*).
+   - Buat database baru bernama `db_uts_pbo_ahmad` di phpMyAdmin.
+   - Aplikasi akan otomatis menyesuaikan beberapa skema tabel menggunakan DDL Scripting saat modul FormNilai atau FormApprovalKrs pertama dijalankan.
+2. **Setup Project**:
+   - Buka project di **Apache NetBeans**.
+   - Pastikan Library `mysql-connector-j` telah ditambahkan di bagian *Libraries*.
+3. **Run Aplikasi**:
+   - Jalankan `SistemAkademikUTB.java` atau `FormLogin.java`.
+   - Gunakan akun dengan level `admin` atau `operator` untuk mengeksplorasi pembatasan akses.
+
+---
+
+## 📖 Panduan Penggunaan Lengkap
+- **Login**: Masukkan ID User dan Password. Sistem akan mendeteksi secara otomatis apakah Anda *Admin* atau *Operator*.
+- **Master Data**: Klik menu di Sidebar (cth: Mahasiswa). Isi form di bagian atas, lalu tekan **Create**. Data akan langsung muncul di *JTable* bagian bawah. Klik baris pada tabel untuk mengisi form secara otomatis, lalu tekan **Update** atau **Delete**.
+- **KRS & Approval**: Operator memasukkan NIM dan Kode MK di menu KRS. Admin melihat daftarnya di menu *Approval KRS* dan menentukan untuk menyetujui atau menolak pengajuan tersebut secara sistem.
+- **Pengelolaan Nilai**: Operator masuk ke menu Nilai. Masukkan NIM, Kode MK, dan nilai per komponen (Absensi, Tugas, Quiz, dll). Klik *Simpan Nilai* dan sistem akan menghitung nilai akhir, menentukan grade, dan menetapkan status kelulusan secara otomatis!
+- **Pengaturan Pengguna**: Pilih ID User dari dropdown, masukkan password baru, lalu klik *Update Password*. Anda juga dapat membuat User Baru dengan menetapkan *Level Akses*.
+
+---
+
+## 🔄 Use Case & Alur Kerja (Visual)
+
+```mermaid
+graph TD
+    %% Define Roles
+    A((Admin))
+    O((Operator))
+
+    %% Define Actions
+    subgraph Master Data
+        M1[Kelola Mahasiswa]
+        M2[Kelola Dosen]
+        M3[Kelola Mata Kuliah]
+    end
+
+    subgraph Transaksi Akademik
+        T1[Input Transaksi KRS]
+        T2[Approval KRS]
+        T3[Input Komponen Nilai & Kalkulasi]
+    end
+
+    subgraph Pengaturan
+        P1[Ganti Password User]
+        P2[Tambah User Baru]
+    end
+
+    %% Role Connections
+    A --> M1
+    A --> M2
+    A --> M3
+    A --> T2
+    A --> P1
+    A --> P2
+
+    O --> T1
+    O --> T3
+    O --> P1
+    O --> P2
+```
+
+---
+
+## 🗄️ Skema Visual Database
+
+```mermaid
+erDiagram
+    user {
+        varchar(20) id_user PK
+        varchar(50) password
+        enum level
+    }
+
+    dosen {
+        varchar(10) kode_dosen PK
+        varchar(100) nama_dosen
+        enum jabatan
+    }
+
+    mahasiswa {
+        varchar(15) nim PK
+        varchar(100) nama
+        text alamat
+        varchar(100) jurusan
+    }
+
+    matakuliah {
+        varchar(10) kode_mk PK
+        varchar(100) nama_mk
+        int sks
+        int semester
+    }
+
+    krs {
+        int id_krs PK
+        varchar(15) nim FK
+        varchar(10) kode_mk FK
+        int semester_aktif
+        varchar(20) status_approval
+    }
+
+    nilai {
+        int id_nilai PK
+        int id_krs
+        int nilai_uts
+        int nilai_tugas
+        int nilai_uas
+        int nilai_absen
+        int nilai_akhir
+        varchar(15) nim FK
+        varchar(10) kode_mk FK
+        enum nilai_huruf
+        double absensi
+        double tugas
+        double quiz
+        double uts
+        double uas
+        varchar(2) grade
+        varchar(20) status
+    }
+
+    mahasiswa ||--o{ krs : "Mendaftarkan"
+    matakuliah ||--o{ krs : "Didaftarkan pada"
+    mahasiswa ||--o{ nilai : "Mendapatkan"
+    matakuliah ||--o{ nilai : "Menghasilkan"
+```
+
+---
+
+## 📸 Screenshot Aplikasi
+
+> *Panduan: Ganti path gambar di bawah dengan screenshot asli setelah aplikasi dijalankan (simpan di folder `img/`).*
+
+### 1. Halaman Login
+![Login Screen](img/screenshot_login.png)
+
+### 2. Dashboard & Sidebar Navigasi
+![Dashboard](img/screenshot_dashboard.png)
+
+### 3. Modul Pengelolaan Nilai (Kalkulasi Otomatis)
+![Form Nilai](img/screenshot_nilai.png)
+
+### 4. Pengaturan Pengguna
+![Pengaturan](img/screenshot_pengaturan.png)
+
+---
+*Dibuat untuk Project Sistem Akademik Universitas Teknologi Bandung (UTB).*

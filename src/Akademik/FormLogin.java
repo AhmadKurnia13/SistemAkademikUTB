@@ -96,6 +96,8 @@ public class FormLogin extends JFrame {
                     java.sql.ResultSet rs = pst.executeQuery();
                     
                     if (rs.next()) {
+                        Session.setIdUser(rs.getString("id_user"));
+                        Session.setLevel(rs.getString("level"));
                         new MenuUtama().setVisible(true);
                         dispose();
                     } else {

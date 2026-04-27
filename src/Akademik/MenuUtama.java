@@ -45,10 +45,30 @@ public class MenuUtama extends JFrame {
         cardPanel.add(new FormMatakuliah(), "Mata Kuliah");
         cardPanel.add(new FormKrs(), "KRS");
         cardPanel.add(new FormNilai(), "Nilai");
+        cardPanel.add(new FormDataUser(), "Data User");
+        cardPanel.add(new FormApprovalKrs(), "Approval KRS");
+        cardPanel.add(new FormPengaturanPengguna(), "Pengaturan");
 
         // NAVIGATION BUTTONS
-        String[] navs = {"Dashboard", "Mahasiswa", "Dosen", "Mata Kuliah", "KRS", "Nilai"};
-        for (String nav : navs) {
+        java.util.List<String> navList = new java.util.ArrayList<>();
+        navList.add("Dashboard");
+
+        String level = Session.getLevel();
+        if ("admin".equalsIgnoreCase(level)) {
+            navList.add("Mahasiswa");
+            navList.add("Dosen");
+            navList.add("Mata Kuliah");
+            navList.add("Pengaturan");
+        } else if ("operator".equalsIgnoreCase(level)) {
+            navList.add("KRS");
+            navList.add("Nilai");
+            navList.add("Pengaturan");
+        } else {
+            // Default fallback if level is empty
+            navList.add("Pengaturan");
+        }
+
+        for (String nav : navList) {
             JButton btn = createNavBtn(nav);
             btn.addActionListener(e -> cardLayout.show(cardPanel, nav));
             sidebar.add(btn);
@@ -59,6 +79,7 @@ public class MenuUtama extends JFrame {
         JButton btnLogout = createNavBtn("Logout");
         btnLogout.setForeground(StyleManager.BTN_DANGER);
         btnLogout.addActionListener(e -> {
+            Session.clear();
             new FormLogin().setVisible(true);
             dispose();
         });
