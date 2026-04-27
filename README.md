@@ -209,16 +209,24 @@ erDiagram
 > *Panduan: Ganti path gambar di bawah dengan screenshot asli setelah aplikasi dijalankan (simpan di folder `img/`).*
 
 ### 1. Halaman Login
-![Login Screen](img/screenshot_login.png)
+![Login Screen](dokumentasi/login.png)
 
 ### 2. Dashboard & Sidebar Navigasi
-![Dashboard](img/screenshot_dashboard.png)
+![Dashboard](dokumentasi/main-menu dashboard.png)
 
 ### 3. Modul Pengelolaan Nilai (Kalkulasi Otomatis)
-![Form Nilai](img/screenshot_nilai.png)
+![Form Nilai](dokumentasi/nilai.png)
 
 ### 4. Pengaturan Pengguna
-![Pengaturan](img/screenshot_pengaturan.png)
+![Pengaturan](dokumentasi/pengaturan.png)
+
+IDENTITAS PENGEMBANG (AUTHOR)
+Nama Mahasiswa           : Ahmad Kurnia
+NIM                      : 24552011297
+Mata Kuliah              : Pemrograman Berorientasi Objek II
+Program Studi            : Teknik Informatika
+Universitas Teknologi Bandung (UTB)
+Dosen Pengampu : Bapak Iwan Ridwan, S.T., M.Kom.
 
 ---
 *Dibuat untuk Project Sistem Akademik Universitas Teknologi Bandung (UTB).*
